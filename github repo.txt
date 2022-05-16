@@ -1,0 +1,19 @@
+ssh-keygen -t rsa -b 4096 -C "mail"
+
+eval $(ssh-agent -s)
+
+ssh-add ~/.ssh/id_rsa
+
+clip < ~/.ssh/id_rsa.pub  || cat ~/.ssh/id_rsa.pub | pbcopy
+
+Now upload files in repo
+
+git init
+
+git add .
+
+git commit -m "first commit"
+
+git remote add origin paste repo url
+
+git push origin master
